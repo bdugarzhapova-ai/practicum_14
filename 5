@@ -1,0 +1,25 @@
+def count_descendants(name, children):
+    """Рекурсивно считает количество потомков для заданного имени"""
+    if name not in children:
+        return 0
+
+    total = 0
+    for child in children[name]:
+        total += 1
+        total += count_descendants(child, children)  
+    return total
+
+
+n = int(input())
+
+children = {}
+
+for _ in range(n):
+    parent, child = input().split()
+    if parent not in children:
+        children[parent] = []
+    children[parent].append(child)
+
+root_name = input()
+
+print(count_descendants(root_name, children))
