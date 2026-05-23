@@ -1,0 +1,11 @@
+text = input().split()
+
+freq = {}
+
+for word in text:
+    freq[word] = freq.get(word, 0) + 1
+
+sorted_words = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+
+for word, count in sorted_words:
+    print(word)
