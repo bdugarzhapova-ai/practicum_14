@@ -1,0 +1,15 @@
+n = int(input())
+
+antonyms = {}
+
+for _ in range(n):
+    word1, word2 = input().split()
+    antonyms[word1] = word2
+    antonyms[word2] = word1
+
+search_word = input()
+
+if search_word in antonyms:
+    print(antonyms[search_word])
+else:
+    print(search_word)
